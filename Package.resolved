@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
+        "version" : "602.0.0"
+      }
+    },
+    {
+      "identity" : "swiftyruntime",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Helixform/SwiftyRuntime.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a66b68f11111b4647fbe32efb3bb802f6bdc527"
+      }
+    }
+  ],
+  "version" : 2
+}
