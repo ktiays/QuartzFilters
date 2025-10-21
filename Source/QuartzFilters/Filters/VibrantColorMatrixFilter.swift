@@ -9,17 +9,21 @@ public protocol VibrantColorMatrix: AnyObject {
 
     var colorMatrix: ColorMatrix { get set }
 
-    var isClamped: Bool { get set }
+    var clamp: CGFloat { get set }
 
-    var isClampPreserveHue: Bool { get set }
+    var clampPreserveHue: CGFloat { get set }
 
-    var backdropAware: Bool { get set }
+    var backdropAware: CGFloat { get set }
 }
 
-final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix {
+final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix, CustomStringConvertible {
 
-    init() {
-        super.init(type: .vibrantColorMatrix)
+    override init(caFilter: NSObject?) {
+        if let caFilter {
+            super.init(caFilter: caFilter)
+        } else {
+            super.init(type: .vibrantColorMatrix)
+        }
     }
 
     var colorMatrix: ColorMatrix {
@@ -34,31 +38,49 @@ final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix {
             caFilter?.setValue(nsValue, forKey: "inputColorMatrix")
         }
     }
-    
-    var isClamped: Bool {
+
+    var clamp: CGFloat {
         get {
-            caFilter?.value(forKey: "inputClamped") as? Bool ?? false
+            caFilter?.value(forKey: "inputClamp") as? CGFloat ?? 0
         }
         set {
-            caFilter?.setValue(newValue, forKey: "inputClamped")
+            caFilter?.setValue(newValue, forKey: "inputClamp")
         }
     }
-    
-    var isClampPreserveHue: Bool {
+
+    var clampPreserveHue: CGFloat {
         get {
-            caFilter?.value(forKey: "inputClampPreserveHue") as? Bool ?? false
+            caFilter?.value(forKey: "inputClampPreserveHue") as? CGFloat ?? 0
         }
         set {
             caFilter?.setValue(newValue, forKey: "inputClampPreserveHue")
         }
     }
-    
-    var backdropAware: Bool {
+
+    var backdropAware: CGFloat {
         get {
-            caFilter?.value(forKey: "inputBackdropAware") as? Bool ?? false
+            caFilter?.value(forKey: "inputBackdropAware") as? CGFloat ?? 0
         }
         set {
             caFilter?.setValue(newValue, forKey: "inputBackdropAware")
         }
+    }
+
+    var description: String {
+        """
+        VibrantColorMatrixFilter(
+            colorMatrix: \(colorMatrix), 
+            clamp: \(clamp), 
+            clampPreserveHue: \(clampPreserveHue), 
+            backdropAware: \(backdropAware)
+        )
+        """
+    }
+}
+
+extension QuartzFilter {
+
+    public static func vibrantColorMatrix(current: NSObject? = nil) -> any QuartzFilter & VibrantColorMatrix {
+        VibrantColorMatrixFilter(caFilter: current)
     }
 }

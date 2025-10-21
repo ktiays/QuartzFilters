@@ -16,9 +16,9 @@ extension ColorMatrix {
 
 open class QuartzFilter {
 
-    let caFilter: NSObject?
+    public let caFilter: NSObject?
 
-    init(type: FilterType) {
+    public init(type: FilterType) {
         if let filterClass = NSClassFromString("CAFilter") {
             let makerFn = #objcClassMethod("filterWithName:", of: filterClass, as: ((String) -> NSObject?).self)
             caFilter = makerFn?(type.rawValue)
@@ -26,8 +26,11 @@ open class QuartzFilter {
             caFilter = nil
         }
     }
-
-    public static func vibrantColorMatrix() -> any QuartzFilter & VibrantColorMatrix {
-        VibrantColorMatrixFilter()
+    
+    public init(caFilter: NSObject?) {
+        if let filter = caFilter {
+            assert(NSStringFromClass(type(of: filter)) == "CAFilter")
+        }
+        self.caFilter = caFilter
     }
 }
