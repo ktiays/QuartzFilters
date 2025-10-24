@@ -1,6 +1,6 @@
 //
-//  Created by ktiays on 2024/11/12.
-//  Copyright (c) 2024 YouMind. All rights reserved.
+//  Created by ktiays on 2025/10/24.
+//  Copyright (c) 2025 ktiays. All rights reserved.
 //
 
 import Foundation

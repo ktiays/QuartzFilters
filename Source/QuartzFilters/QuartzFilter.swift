@@ -3,16 +3,8 @@
 //  Copyright (c) 2025 ktiays. All rights reserved.
 //
 
-import CQuartzFilters
-import ObjectiveC
+import Foundation
 import SwiftyRuntime
-
-public typealias ColorMatrix = CQuartzFilters.CQFColorMatrix
-
-extension ColorMatrix {
-    
-    public static var identity: Self { CQFColorMatrixIdentity }
-}
 
 open class QuartzFilter {
 
