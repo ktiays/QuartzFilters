@@ -39,7 +39,7 @@ extension ColorMatrix {
     }
 }
 
-extension ColorMatrix: CustomStringConvertible {
+extension ColorMatrix: @retroactive CustomStringConvertible {
 
     public var description: String {
         """

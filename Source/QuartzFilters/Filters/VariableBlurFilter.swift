@@ -100,9 +100,9 @@ final class VariableBlurFilter: QuartzFilter, VariableBlur, CustomStringConverti
     var description: String {
         let fadeDescription =
             if #available(iOS 26.0, *) {
-                "fade: \(fade)"
+                "\(fade)"
             } else {
-                ""
+                "(Not available)"
             }
         return """
             VariableBlurFilter(
@@ -111,7 +111,7 @@ final class VariableBlurFilter: QuartzFilter, VariableBlur, CustomStringConverti
                 dither: \(dither),
                 normalizeEdges: \(normalizeEdges),
                 sourceSublayerName: \(sourceSublayerName ?? "nil"),
-                \(fadeDescription),
+                fade: \(fadeDescription)
             )
             """
     }

@@ -72,7 +72,7 @@ final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix, CustomSt
             if #available(iOS 26.0, *) {
                 "\(backdropAware)"
             } else {
-                "Not Available"
+                "(Not available)"
             }
         return """
         VibrantColorMatrixFilter(
