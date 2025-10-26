@@ -27,46 +27,14 @@ final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix, CustomSt
         }
     }
 
-    var colorMatrix: ColorMatrix {
-        get {
-            if let nsValue = caFilter?.value(forKey: "inputColorMatrix") as? NSValue {
-                return nsValue.colorMatrixValue
-            }
-            return .identity
-        }
-        set {
-            let nsValue = NSValue.fromColorMatrix(newValue)
-            caFilter?.setValue(nsValue, forKey: "inputColorMatrix")
-        }
-    }
+    @FilterProperty(\.colorMatrix) var colorMatrix: ColorMatrix
 
-    var clamp: CGFloat {
-        get {
-            caFilter?.value(forKey: "inputClamp") as? CGFloat ?? 0
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputClamp")
-        }
-    }
+    @FilterProperty(\.clamp) var clamp: CGFloat
 
-    var clampPreserveHue: CGFloat {
-        get {
-            caFilter?.value(forKey: "inputClampPreserveHue") as? CGFloat ?? 0
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputClampPreserveHue")
-        }
-    }
+    @FilterProperty(\.clampPreserveHue) var clampPreserveHue: CGFloat
 
-    var backdropAware: CGFloat {
-        get {
-            caFilter?.value(forKey: "inputBackdropAware") as? CGFloat ?? 0
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputBackdropAware")
-        }
-    }
-
+    @FilterProperty(\.backdropAware) var backdropAware: CGFloat
+    
     var description: String {
         let backdropAwareDescription: String =
             if #available(iOS 26.0, *) {

@@ -10,7 +10,7 @@ import SwiftyRuntime
 public protocol ColorMatrixProtocol: AnyObject {
 
     /// The color matrix applied by the filter.
-    var colorMatrix: ColorMatrix? { get set }
+    var colorMatrix: ColorMatrix { get set }
 }
 
 final class ColorMatrixFilter: QuartzFilter, ColorMatrixProtocol, CustomStringConvertible {
@@ -23,23 +23,12 @@ final class ColorMatrixFilter: QuartzFilter, ColorMatrixProtocol, CustomStringCo
         }
     }
 
-    var colorMatrix: ColorMatrix? {
-        get {
-            (caFilter?.value(forKey: "inputColorMatrix") as? NSValue)?.colorMatrixValue
-        }
-        set {
-            if let newValue {
-                caFilter?.setValue(NSValue.fromColorMatrix(newValue), forKey: "inputColorMatrix")
-            } else {
-                caFilter?.setValue(nil, forKey: "inputColorMatrix")
-            }
-        }
-    }
+    @FilterProperty(\.colorMatrix) var colorMatrix: ColorMatrix
 
     var description: String {
         """
         ColorMatrixFilter(
-            colorMatrix: \(colorMatrix?.description ?? "nil")
+            colorMatrix: \(colorMatrix.description)
         )
         """
     }

@@ -23,14 +23,7 @@ final class GaussianBlurFilter: QuartzFilter, GaussianBlur, CustomStringConverti
         }
     }
 
-    var radius: Double {
-        get {
-            caFilter?.value(forKey: "inputRadius") as? Double ?? 0
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputRadius")
-        }
-    }
+    @FilterProperty(\.radius) var radius: Double
 
     var description: String {
         """

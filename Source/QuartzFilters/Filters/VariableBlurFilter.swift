@@ -40,53 +40,15 @@ final class VariableBlurFilter: QuartzFilter, VariableBlur, CustomStringConverti
         }
     }
 
-    var radius: Double {
-        get {
-            caFilter?.value(forKey: "inputRadius") as? Double ?? 0
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputRadius")
-        }
-    }
+    @FilterProperty(\.radius) var radius: Double
 
-    var maskImage: CGImage? {
-        get {
-            guard let value = caFilter?.value(forKey: "inputMaskImage") else {
-                return nil
-            }
-            return unsafeBitCast(value, to: CGImage?.self)
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputMaskImage")
-        }
-    }
+    @FilterProperty(\.maskImage) var maskImage: CGImage?
 
-    var dither: Bool {
-        get {
-            caFilter?.value(forKey: "inputDither") as? Bool ?? false
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputDither")
-        }
-    }
+    @FilterProperty(\.dither) var dither: Bool
 
-    var normalizeEdges: Bool {
-        get {
-            caFilter?.value(forKey: "inputNormalizeEdges") as? Bool ?? false
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputNormalizeEdges")
-        }
-    }
+    @FilterProperty(\.normalizeEdges) var normalizeEdges: Bool
 
-    var sourceSublayerName: String? {
-        get {
-            caFilter?.value(forKey: "inputSourceSublayerName") as? String
-        }
-        set {
-            caFilter?.setValue(newValue, forKey: "inputSourceSublayerName")
-        }
-    }
+    @FilterProperty(\.sourceSublayerName) var sourceSublayerName: String?
 
     var fade: Bool {
         get {
