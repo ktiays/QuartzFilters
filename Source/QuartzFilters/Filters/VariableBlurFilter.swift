@@ -23,8 +23,10 @@ public protocol VariableBlur: AnyObject {
     /// A Boolean value that indicates whether edges are normalized during the blur operation.
     var normalizeEdges: Bool { get set }
 
+    @available(iOS 26.0, *)
     var sourceSublayerName: String? { get set }
 
+    @available(iOS 26.0, *)
     var fade: Bool { get set }
 }
 
@@ -96,16 +98,22 @@ final class VariableBlurFilter: QuartzFilter, VariableBlur, CustomStringConverti
     }
 
     var description: String {
-        """
-        VariableBlurFilter(
-            radius: \(radius),
-            maskImage: \(maskImage != nil ? "set" : "nil"),
-            dither: \(dither),
-            normalizeEdges: \(normalizeEdges),
-            sourceSublayerName: \(sourceSublayerName ?? "nil"),
-            fade: \(fade)
-        )
-        """
+        let fadeDescription =
+            if #available(iOS 26.0, *) {
+                "fade: \(fade)"
+            } else {
+                ""
+            }
+        return """
+            VariableBlurFilter(
+                radius: \(radius),
+                maskImage: \(maskImage != nil ? "\(maskImage!)" : "nil"),
+                dither: \(dither),
+                normalizeEdges: \(normalizeEdges),
+                sourceSublayerName: \(sourceSublayerName ?? "nil"),
+                \(fadeDescription),
+            )
+            """
     }
 }
 
