@@ -86,7 +86,9 @@ extension ColorMatrix: SupportedDefaultValue {
 extension CGImage: SupportedFilterPropertyValue {}
 
 extension Optional: SupportedFilterPropertyValue where Wrapped: SupportedFilterPropertyValue {}
-extension Optional: SupportedDirectlyAssignmentValue where Wrapped: SupportedDirectlyAssignmentValue {}
+extension Optional: SupportedDirectlyAssignmentValue, SupportedDefaultValue where Wrapped: SupportedDirectlyAssignmentValue {
+    static var defaultValue: Optional<Wrapped> { nil }
+}
 
 // MARK: - Getter
 

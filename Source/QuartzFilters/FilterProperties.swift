@@ -18,6 +18,8 @@ struct FilterProperties {
     let clamp = ClampKey.self
     let clampPreserveHue = ClampPreserveHueKey.self
     let backdropAware = BackdropAwareKey.self
+    let quality = QualityKey.self
+    let amount = AmountKey.self
 }
 
 struct SourceSublayerNameKey: FilterPropertyKey {
@@ -88,4 +90,18 @@ struct BackdropAwareKey: FilterPropertyKey {
     typealias Value = CGFloat
     
     static var key: String { "inputBackdropAware" }
+}
+
+struct QualityKey: FilterPropertyKey {
+    
+    typealias Value = String?
+    
+    static var key: String { "inputQuality" }
+}
+
+struct AmountKey: FilterPropertyKey {
+    
+    typealias Value = Double
+    
+    static var key: String { "inputAmount" }
 }
