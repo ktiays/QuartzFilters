@@ -13,7 +13,7 @@ let package = Package(
         .library(name: "QuartzFilters", targets: ["QuartzFilters"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Helixform/SwiftyRuntime.git", branch: "main"),
+        .package(url: "https://github.com/Helixform/SwiftyRuntime.git", from: "1.0.0")
     ],
     targets: [
         .target(
@@ -23,6 +23,6 @@ let package = Package(
                 "CQuartzFilters",
             ]
         ),
-        .target(name: "CQuartzFilters")
+        .target(name: "CQuartzFilters"),
     ]
 )
