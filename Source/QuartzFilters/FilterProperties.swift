@@ -20,6 +20,11 @@ struct FilterProperties {
     let backdropAware = BackdropAwareKey.self
     let quality = QualityKey.self
     let amount = AmountKey.self
+    let values = ValuesKey.self
+    let color = ColorKey.self
+    let overlayOpacity = OverlayOpacityKey.self
+    let colorMap = ColorMapKey.self
+    let hardEdges = HardEdgesKey.self
 }
 
 struct SourceSublayerNameKey: FilterPropertyKey {
@@ -104,4 +109,39 @@ struct AmountKey: FilterPropertyKey {
     typealias Value = Double
     
     static var key: String { "inputAmount" }
+}
+
+struct ValuesKey: FilterPropertyKey {
+    
+    typealias Value = [CGFloat]
+    
+    static var key: String { "inputValues" }
+}
+
+struct ColorKey: FilterPropertyKey {
+    
+    typealias Value = CGColor?
+    
+    static var key: String { "inputColor" }
+}
+
+struct OverlayOpacityKey: FilterPropertyKey {
+    
+    typealias Value = Double
+    
+    static var key: String { "inputOverlayOpacity" }
+}
+
+struct ColorMapKey: FilterPropertyKey {
+    
+    typealias Value = CGImage?
+    
+    static var key: String { "inputColorMap" }
+}
+
+struct HardEdgesKey: FilterPropertyKey {
+    
+    typealias Value = Bool
+    
+    static var key: String { "inputHardEdges" }
 }

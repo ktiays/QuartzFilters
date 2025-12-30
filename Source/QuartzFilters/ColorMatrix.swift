@@ -3,7 +3,7 @@
 //  Copyright (c) 2025 ktiays. All rights reserved.
 //
 
-import CQuartzFilters
+@_exported import CQuartzFilters
 import CoreImage
 
 public typealias ColorMatrix = CQuartzFilters.CQFColorMatrix

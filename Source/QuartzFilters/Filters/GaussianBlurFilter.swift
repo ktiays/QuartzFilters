@@ -15,6 +15,8 @@ public protocol GaussianBlur: AnyObject {
     var quality: String? { get set }
     
     var normalizeEdges: Bool { get set }
+    
+    var hardEdges: Bool { get set }
 }
 
 final class GaussianBlurFilter: QuartzFilter, GaussianBlur, CustomStringConvertible {
@@ -32,13 +34,16 @@ final class GaussianBlurFilter: QuartzFilter, GaussianBlur, CustomStringConverti
     @FilterProperty(\.quality) var quality: String?
     
     @FilterProperty(\.normalizeEdges) var normalizeEdges: Bool
+    
+    @FilterProperty(\.hardEdges) var hardEdges: Bool
 
     var description: String {
         """
         GaussianBlurFilter(
             radius: \(radius),
             quality: \(String(describing: quality)),
-            normalizeEdges: \(normalizeEdges)
+            normalizeEdges: \(normalizeEdges),
+            hardEdges: \(hardEdges)
         )
         """
     }
