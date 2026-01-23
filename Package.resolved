@@ -1,4 +1,5 @@
 {
+  "originHash" : "cd1511843fc925b27e3b367dc5fab3622ceb521127bf99da7790c832eb46e9df",
   "pins" : [
     {
       "identity" : "swift-syntax",
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Helixform/SwiftyRuntime.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "7a66b68f11111b4647fbe32efb3bb802f6bdc527"
+        "revision" : "7a66b68f11111b4647fbe32efb3bb802f6bdc527",
+        "version" : "1.0.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
