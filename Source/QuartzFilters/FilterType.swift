@@ -42,10 +42,10 @@ public struct FilterType: RawRepresentable, Hashable, Sendable, ExpressibleByStr
     public static let gaussianBlur: Self = "gaussianBlur"
     public static let variableBlur: Self = "variableBlur"
     
-    @available(iOS 26.0, *)
+    @available(iOS 26.0, macOS 26.0, *)
     public static let glassBackground: Self = "glassBackground"
     
-    @available(iOS 26.0, *)
+    @available(iOS 26.0, macOS 26.0, *)
     public static let glassForeground: Self = "glassForeground"
     
     public static let chromaticAberration: Self = "chromaticAberration"

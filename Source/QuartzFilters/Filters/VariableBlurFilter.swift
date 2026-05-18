@@ -23,10 +23,10 @@ public protocol VariableBlur: AnyObject {
     /// A Boolean value that indicates whether edges are normalized during the blur operation.
     var normalizeEdges: Bool { get set }
 
-    @available(iOS 26.0, *)
+    @available(iOS 26.0, macOS 26.0, *)
     var sourceSublayerName: String? { get set }
 
-    @available(iOS 26.0, *)
+    @available(iOS 26.0, macOS 26.0, *)
     var fade: Bool { get set }
 }
 
@@ -61,7 +61,7 @@ final class VariableBlurFilter: QuartzFilter, VariableBlur, CustomStringConverti
 
     var description: String {
         let fadeDescription =
-            if #available(iOS 26.0, *) {
+            if #available(iOS 26.0, macOS 26.0, *) {
                 "\(fade)"
             } else {
                 "(Not available)"

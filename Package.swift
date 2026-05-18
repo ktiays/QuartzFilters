@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "QuartzFilters",
     platforms: [
-        .iOS(.v17),
-        .macOS(.v14),
+        .iOS(.v15),
+        .macOS(.v12),
     ],
     products: [
         .library(name: "QuartzFilters", targets: ["QuartzFilters"])

@@ -13,7 +13,7 @@ public protocol VibrantColorMatrix: AnyObject {
 
     var clampPreserveHue: CGFloat { get set }
 
-    @available(iOS 26.0, *)
+    @available(iOS 26.0, macOS 26.0, *)
     var backdropAware: CGFloat { get set }
 }
 
@@ -37,7 +37,7 @@ final class VibrantColorMatrixFilter: QuartzFilter, VibrantColorMatrix, CustomSt
     
     var description: String {
         let backdropAwareDescription: String =
-            if #available(iOS 26.0, *) {
+            if #available(iOS 26.0, macOS 26.0, *) {
                 "\(backdropAware)"
             } else {
                 "(Not available)"
