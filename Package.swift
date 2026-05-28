@@ -12,17 +12,18 @@ let package = Package(
     products: [
         .library(name: "QuartzFilters", targets: ["QuartzFilters"])
     ],
-    dependencies: [
-        .package(url: "https://github.com/Helixform/SwiftyRuntime.git", from: "1.0.0")
-    ],
     targets: [
         .target(
             name: "QuartzFilters",
             dependencies: [
-                .product(name: "SwiftyRuntime", package: "SwiftyRuntime"),
                 "CQuartzFilters",
             ]
         ),
-        .target(name: "CQuartzFilters"),
+        .target(
+            name: "CQuartzFilters",
+            cSettings: [
+                .headerSearchPath("Internal"),
+            ]
+        ),
     ]
 )
