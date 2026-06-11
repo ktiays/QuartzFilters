@@ -46,6 +46,14 @@
 #define CQF_FP_amount_KIND              NUMBER
 #define CQF_FP_amount_KEY               Amount
 
+#define CQF_FP_start_TYPE               CGFloat
+#define CQF_FP_start_KIND               NUMBER
+#define CQF_FP_start_KEY                Start
+
+#define CQF_FP_end_TYPE                 CGFloat
+#define CQF_FP_end_KIND                 NUMBER
+#define CQF_FP_end_KEY                  End
+
 #define CQF_FP_backdropAware_TYPE       CGFloat
 #define CQF_FP_backdropAware_KIND       NUMBER
 #define CQF_FP_backdropAware_KEY        BackdropAware
