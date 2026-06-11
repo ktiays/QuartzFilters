@@ -25,9 +25,9 @@ NS_SWIFT_NAME(CAFilterProtocol)
 
 - (instancetype)initWithName:(NSString *)name;
 
-- (NSArray<NSString *> *)inputKeys;
+- (NSArray<NSString *> *)inputKeys API_UNAVAILABLE(ios, tvos, watchos);
 
-- (NSArray<NSString *> *)outputKeys;
+- (NSArray<NSString *> *)outputKeys API_UNAVAILABLE(ios, tvos, watchos);
 
 @end
 

@@ -20,9 +20,9 @@ NS_SWIFT_NAME(QuartzFilter)
 
 @property (nonatomic, readonly) CQFQuartzFilterType type;
 
-@property (nonatomic, readonly) NSArray<CQFQuartzFilterInputKey> *inputKeys;
+@property (nonatomic, readonly) NSArray<CQFQuartzFilterInputKey> *inputKeys API_UNAVAILABLE(ios, tvos, watchos);
 
-@property (nonatomic, readonly) NSArray<NSString *> *outputKeys;
+@property (nonatomic, readonly) NSArray<NSString *> *outputKeys API_UNAVAILABLE(ios, tvos, watchos);
 
 + (instancetype)filterWithType:(CQFQuartzFilterType)filterType;
 

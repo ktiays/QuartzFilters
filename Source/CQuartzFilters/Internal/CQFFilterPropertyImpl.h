@@ -74,6 +74,23 @@
                                       forKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];         \
     }
 
+#define CQF_FP_IMPL_POINT_(NAME)                                                              \
+    - (CQF_FP_##NAME##_TYPE)NAME {                                                            \
+        id value = [(NSObject *) self.caFilter                                                \
+                    valueForKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];                      \
+        if (![value isKindOfClass:[NSValue class]]) {                                         \
+            return CGPointZero;                                                               \
+        }                                                                                     \
+        CGPoint point = CGPointZero;                                                          \
+        [(NSValue *) value getValue:&point];                                                   \
+        return point;                                                                         \
+    }                                                                                         \
+    - (void)CQF_FP_SETTER_(CQF_FP_##NAME##_KEY):(CQF_FP_##NAME##_TYPE)value {                 \
+        [(NSObject *) self.caFilter setValue:[NSValue valueWithBytes:&value                   \
+                                                            objCType:@encode(CGPoint)]        \
+                                      forKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];         \
+    }
+
 #define CQF_FP_IMPL_ARRAY_(NAME)                                                              \
     - (CQF_FP_##NAME##_TYPE)NAME {                                                            \
         return [(NSObject *) self.caFilter                                                    \

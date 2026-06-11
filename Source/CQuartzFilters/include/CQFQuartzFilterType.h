@@ -39,7 +39,7 @@ __DEF_CQFFILTER_TYPE__(DistanceField);
 __DEF_CQFFILTER_TYPE__(EdrGain);
 __DEF_CQFFILTER_TYPE__(EdrGainMultiply);
 __DEF_CQFFILTER_TYPE__(GaussianBlur);
-__DEF_CQFFILTER_TYPE__(GlassBackground) API_AVAILABLE(ios(26.0), macos(26.0));
+__DEF_CQFFILTER_TYPE__(GlassBackground) API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0));
 __DEF_CQFFILTER_TYPE__(GlassForeground) API_AVAILABLE(ios(26.0), macos(26.0));
 __DEF_CQFFILTER_TYPE__(LanczosResize);
 __DEF_CQFFILTER_TYPE__(LimitAveragePixelLuminance);
