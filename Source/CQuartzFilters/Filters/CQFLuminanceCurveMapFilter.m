@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFLuminanceCurveMapFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFLuminanceCurveMapFilter : CQFQuartzFilter <CQFLuminanceCurveMap>
 @end
@@ -20,14 +21,18 @@ CQF_FP_IMPL(amount)
 @implementation CQFQuartzFilter (CQFLuminanceCurveMap)
 
 + (CQFQuartzFilter<CQFLuminanceCurveMap> *)luminanceCurveMapFilter {
-    return [self luminanceCurveMapFilterWithCurrent:nil];
+    return [[CQFLuminanceCurveMapFilter alloc] initWithType:CQFQuartzFilterTypeLuminanceCurveMap];
 }
 
-+ (CQFQuartzFilter<CQFLuminanceCurveMap> *)luminanceCurveMapFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFLuminanceCurveMapFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFLuminanceCurveMap> * _Nullable)luminanceCurveMapFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFLuminanceCurveMapFilter alloc] initWithType:CQFQuartzFilterTypeLuminanceCurveMap];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeLuminanceCurveMap]) {
+        return nil;
+    }
+    return [[CQFLuminanceCurveMapFilter alloc] initWithFilter:filter];
 }
 
 @end

@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFGlassBackgroundFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFGlassBackgroundFilter : CQFQuartzFilter <CQFGlassBackground>
 @end
@@ -156,14 +157,18 @@ CQF_FP_IMPL(clampPreserveHue)
 @implementation CQFQuartzFilter (CQFGlassBackground)
 
 + (CQFQuartzFilter<CQFGlassBackground> *)glassBackgroundFilter {
-    return [self glassBackgroundFilterWithCurrent:nil];
+    return [[CQFGlassBackgroundFilter alloc] initWithType:CQFQuartzFilterTypeGlassBackground];
 }
 
-+ (CQFQuartzFilter<CQFGlassBackground> *)glassBackgroundFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFGlassBackgroundFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFGlassBackground> * _Nullable)glassBackgroundFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFGlassBackgroundFilter alloc] initWithType:CQFQuartzFilterTypeGlassBackground];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeGlassBackground]) {
+        return nil;
+    }
+    return [[CQFGlassBackgroundFilter alloc] initWithFilter:filter];
 }
 
 @end

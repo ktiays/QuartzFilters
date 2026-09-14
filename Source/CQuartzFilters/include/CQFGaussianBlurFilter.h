@@ -29,7 +29,7 @@ CQF_FP_DECL(hardEdges);
 
 + (CQFQuartzFilter<CQFGaussianBlur> *)gaussianBlurFilter;
 
-+ (CQFQuartzFilter<CQFGaussianBlur> *)gaussianBlurFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFGaussianBlur> * _Nullable)gaussianBlurFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(gaussianBlur(with:));
 
 @end
 

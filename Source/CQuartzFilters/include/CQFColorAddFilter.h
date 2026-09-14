@@ -22,7 +22,7 @@ CQF_FP_DECL(color);
 
 + (CQFQuartzFilter<CQFColorAdd> *)colorAddFilter;
 
-+ (CQFQuartzFilter<CQFColorAdd> *)colorAddFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFColorAdd> * _Nullable)colorAddFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(colorAdd(with:));
 
 @end
 

@@ -29,7 +29,7 @@ CQF_FP_DECL(backdropAware) API_AVAILABLE(ios(26.0), macos(26.0));
 
 + (CQFQuartzFilter<CQFVibrantColorMatrix> *)vibrantColorMatrixFilter;
 
-+ (CQFQuartzFilter<CQFVibrantColorMatrix> *)vibrantColorMatrixFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFVibrantColorMatrix> * _Nullable)vibrantColorMatrixFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(vibrantColorMatrix(with:));
 
 @end
 

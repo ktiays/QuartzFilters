@@ -5,6 +5,7 @@
 
 #import "CQFColorAddFilter.h"
 #import "CQFFilterPropertyImpl.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFColorAddFilter : CQFQuartzFilter <CQFColorAdd>
 @end
@@ -18,14 +19,18 @@ CQF_FP_IMPL(color)
 @implementation CQFQuartzFilter (CQFColorAdd)
 
 + (CQFQuartzFilter<CQFColorAdd> *)colorAddFilter {
-    return [self colorAddFilterWithCurrent:nil];
+    return [[CQFColorAddFilter alloc] initWithType:CQFQuartzFilterTypeColorAdd];
 }
 
-+ (CQFQuartzFilter<CQFColorAdd> *)colorAddFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFColorAddFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFColorAdd> * _Nullable)colorAddFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFColorAddFilter alloc] initWithType:CQFQuartzFilterTypeColorAdd];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeColorAdd]) {
+        return nil;
+    }
+    return [[CQFColorAddFilter alloc] initWithFilter:filter];
 }
 
 @end

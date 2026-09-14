@@ -24,7 +24,7 @@ CQF_FP_DECL(colorMatrix);
 
 + (CQFQuartzFilter<CQFColorMatrixProtocol> *)colorMatrixFilter;
 
-+ (CQFQuartzFilter<CQFColorMatrixProtocol> *)colorMatrixFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFColorMatrixProtocol> * _Nullable)colorMatrixFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(colorMatrix(with:));
 
 @end
 

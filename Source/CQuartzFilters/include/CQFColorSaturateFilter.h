@@ -23,7 +23,7 @@ CQF_FP_DECL(amount);
 
 + (CQFQuartzFilter<CQFColorSaturate> *)colorSaturateFilter;
 
-+ (CQFQuartzFilter<CQFColorSaturate> *)colorSaturateFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFColorSaturate> * _Nullable)colorSaturateFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(colorSaturate(with:));
 
 @end
 

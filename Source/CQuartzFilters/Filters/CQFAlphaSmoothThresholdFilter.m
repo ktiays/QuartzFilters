@@ -5,6 +5,7 @@
 
 #import "CQFAlphaSmoothThresholdFilter.h"
 #import "CQFFilterPropertyImpl.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFAlphaSmoothThresholdFilter : CQFQuartzFilter <CQFAlphaSmoothThreshold>
 @end
@@ -24,14 +25,18 @@ CQF_FP_IMPL(color)
 @implementation CQFQuartzFilter (CQFAlphaSmoothThreshold)
 
 + (CQFQuartzFilter<CQFAlphaSmoothThreshold> *)alphaSmoothThresholdFilter {
-    return [self alphaSmoothThresholdFilterWithCurrent:nil];
+    return [[CQFAlphaSmoothThresholdFilter alloc] initWithType:CQFQuartzFilterTypeAlphaSmoothThreshold];
 }
 
-+ (CQFQuartzFilter<CQFAlphaSmoothThreshold> *)alphaSmoothThresholdFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFAlphaSmoothThresholdFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFAlphaSmoothThreshold> * _Nullable)alphaSmoothThresholdFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFAlphaSmoothThresholdFilter alloc] initWithType:CQFQuartzFilterTypeAlphaSmoothThreshold];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeAlphaSmoothThreshold]) {
+        return nil;
+    }
+    return [[CQFAlphaSmoothThresholdFilter alloc] initWithFilter:filter];
 }
 
 @end

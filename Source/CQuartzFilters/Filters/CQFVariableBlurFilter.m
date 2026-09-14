@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFVariableBlurFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFVariableBlurFilter : CQFQuartzFilter <CQFVariableBlur>
 @end
@@ -28,14 +29,18 @@ CQF_FP_IMPL(fade)
 @implementation CQFQuartzFilter (CQFVariableBlur)
 
 + (CQFQuartzFilter<CQFVariableBlur> *)variableBlurFilter {
-    return [self variableBlurFilterWithCurrent:nil];
+    return [[CQFVariableBlurFilter alloc] initWithType:CQFQuartzFilterTypeVariableBlur];
 }
 
-+ (CQFQuartzFilter<CQFVariableBlur> *)variableBlurFilterWithCurrent:(id)current {
-    if (current) {
-        return [[CQFVariableBlurFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFVariableBlur> * _Nullable)variableBlurFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFVariableBlurFilter alloc] initWithType:CQFQuartzFilterTypeVariableBlur];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeVariableBlur]) {
+        return nil;
+    }
+    return [[CQFVariableBlurFilter alloc] initWithFilter:filter];
 }
 
 @end

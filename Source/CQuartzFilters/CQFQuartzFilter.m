@@ -6,15 +6,14 @@
 #import <objc/runtime.h>
 
 #import "CQFQuartzFilter.h"
-
-static NSString * const kCAFilterClassName = @"CAFilter";
+#import "CQuartzFiltersPrivate.h"
 
 @implementation CQFQuartzFilter
 
 - (instancetype)initWithType:(CQFQuartzFilterType)filterType {
     self = [super init];
     if (self) {
-        Class filterClass = NSClassFromString(kCAFilterClassName);
+        Class filterClass = NSClassFromString(kCQFCAFilterClassName);
         SEL constructorSelector = sel_registerName("initWithType:");
         Method constructorMethod = class_getInstanceMethod(filterClass, constructorSelector);
         IMP constructorImpl = method_getImplementation(constructorMethod);
@@ -33,14 +32,14 @@ static NSString * const kCAFilterClassName = @"CAFilter";
 - (instancetype)initWithFilter:(id)filter {
     self = [super init];
     if (self) {
-        NSAssert([NSStringFromClass([filter class]) isEqualToString:kCAFilterClassName], @"");
+        NSAssert([NSStringFromClass([filter class]) isEqualToString:kCQFCAFilterClassName], @"");
         _caFilter = filter;
     }
     return self;
 }
 
 + (NSArray<CQFQuartzFilterType> *)filterTypes {
-    return [((id<CQFCAFilterProtocol>) NSClassFromString(kCAFilterClassName)) filterTypes];
+    return [((id<CQFCAFilterProtocol>) NSClassFromString(kCQFCAFilterClassName)) filterTypes];
 }
 
 - (NSString *)name {

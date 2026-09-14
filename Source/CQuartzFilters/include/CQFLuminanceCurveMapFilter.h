@@ -24,7 +24,7 @@ CQF_FP_DECL(amount);
 
 + (CQFQuartzFilter<CQFLuminanceCurveMap> *)luminanceCurveMapFilter;
 
-+ (CQFQuartzFilter<CQFLuminanceCurveMap> *)luminanceCurveMapFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFLuminanceCurveMap> * _Nullable)luminanceCurveMapFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(luminanceCurveMap(with:));
 
 @end
 

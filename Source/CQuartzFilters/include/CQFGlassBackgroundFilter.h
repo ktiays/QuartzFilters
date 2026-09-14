@@ -131,7 +131,7 @@ API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0))
 
 + (CQFQuartzFilter<CQFGlassBackground> *)glassBackgroundFilter API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0));
 
-+ (CQFQuartzFilter<CQFGlassBackground> *)glassBackgroundFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0));
++ (CQFQuartzFilter<CQFGlassBackground> * _Nullable)glassBackgroundFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(glassBackground(with:)) API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0));
 
 @end
 

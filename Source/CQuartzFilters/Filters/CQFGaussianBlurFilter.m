@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFGaussianBlurFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFGaussianBlurFilter : CQFQuartzFilter <CQFGaussianBlur>
 @end
@@ -24,14 +25,18 @@ CQF_FP_IMPL(hardEdges)
 @implementation CQFQuartzFilter (CQFGaussianBlur)
 
 + (CQFQuartzFilter<CQFGaussianBlur> *)gaussianBlurFilter {
-    return [self gaussianBlurFilterWithCurrent:nil];
+    return [[CQFGaussianBlurFilter alloc] initWithType:CQFQuartzFilterTypeGaussianBlur];
 }
 
-+ (CQFQuartzFilter<CQFGaussianBlur> *)gaussianBlurFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFGaussianBlurFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFGaussianBlur> * _Nullable)gaussianBlurFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFGaussianBlurFilter alloc] initWithType:CQFQuartzFilterTypeGaussianBlur];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeGaussianBlur]) {
+        return nil;
+    }
+    return [[CQFGaussianBlurFilter alloc] initWithFilter:filter];
 }
 
 @end

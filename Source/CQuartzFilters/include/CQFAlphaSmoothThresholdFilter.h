@@ -28,7 +28,7 @@ CQF_FP_DECL(color);
 
 + (CQFQuartzFilter<CQFAlphaSmoothThreshold> *)alphaSmoothThresholdFilter;
 
-+ (CQFQuartzFilter<CQFAlphaSmoothThreshold> *)alphaSmoothThresholdFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFAlphaSmoothThreshold> * _Nullable)alphaSmoothThresholdFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(alphaSmoothThreshold(with:));
 
 @end
 

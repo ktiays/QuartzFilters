@@ -5,6 +5,7 @@
 
 #import "CQFColorMatrixFilter.h"
 #import "CQFFilterPropertyImpl.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFColorMatrixFilter : CQFQuartzFilter <CQFColorMatrixProtocol>
 @end
@@ -18,14 +19,18 @@ CQF_FP_IMPL(colorMatrix)
 @implementation CQFQuartzFilter (CQFColorMatrixProtocol)
 
 + (CQFQuartzFilter<CQFColorMatrixProtocol> *)colorMatrixFilter {
-    return [self colorMatrixFilterWithCurrent:nil];
+    return [[CQFColorMatrixFilter alloc] initWithType:CQFQuartzFilterTypeColorMatrix];
 }
 
-+ (CQFQuartzFilter<CQFColorMatrixProtocol> *)colorMatrixFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFColorMatrixFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFColorMatrixProtocol> * _Nullable)colorMatrixFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFColorMatrixFilter alloc] initWithType:CQFQuartzFilterTypeColorMatrix];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeColorMatrix]) {
+        return nil;
+    }
+    return [[CQFColorMatrixFilter alloc] initWithFilter:filter];
 }
 
 @end

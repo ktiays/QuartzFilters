@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFVibrantColorMatrixFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFVibrantColorMatrixFilter : CQFQuartzFilter <CQFVibrantColorMatrix>
 @end
@@ -24,14 +25,18 @@ CQF_FP_IMPL(backdropAware)
 @implementation CQFQuartzFilter (CQFVibrantColorMatrix)
 
 + (CQFQuartzFilter<CQFVibrantColorMatrix> *)vibrantColorMatrixFilter {
-    return [self vibrantColorMatrixFilterWithCurrent:nil];
+    return [[CQFVibrantColorMatrixFilter alloc] initWithType:CQFQuartzFilterTypeVibrantColorMatrix];
 }
 
-+ (CQFQuartzFilter<CQFVibrantColorMatrix> *)vibrantColorMatrixFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFVibrantColorMatrixFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFVibrantColorMatrix> * _Nullable)vibrantColorMatrixFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFVibrantColorMatrixFilter alloc] initWithType:CQFQuartzFilterTypeVibrantColorMatrix];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeVibrantColorMatrix]) {
+        return nil;
+    }
+    return [[CQFVibrantColorMatrixFilter alloc] initWithFilter:filter];
 }
 
 @end

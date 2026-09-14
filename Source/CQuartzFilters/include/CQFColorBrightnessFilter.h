@@ -23,7 +23,7 @@ CQF_FP_DECL(amount);
 
 + (CQFQuartzFilter<CQFColorBrightness> *)colorBrightnessFilter;
 
-+ (CQFQuartzFilter<CQFColorBrightness> *)colorBrightnessFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFColorBrightness> * _Nullable)colorBrightnessFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(colorBrightness(with:));
 
 @end
 

@@ -24,7 +24,7 @@ CQF_FP_DECL(color);
 
 + (CQFQuartzFilter<CQFAlphaThreshold> *)alphaThresholdFilter;
 
-+ (CQFQuartzFilter<CQFAlphaThreshold> *)alphaThresholdFilterWithCurrent:(nullable id<CQFCAFilterProtocol>)current;
++ (CQFQuartzFilter<CQFAlphaThreshold> * _Nullable)alphaThresholdFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(alphaThreshold(with:));
 
 @end
 

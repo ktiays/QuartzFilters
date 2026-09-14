@@ -38,7 +38,7 @@ CQF_FP_DECL(fade) API_AVAILABLE(ios(26.0), macos(26.0));
 
 + (CQFQuartzFilter<CQFVariableBlur> *)variableBlurFilter;
 
-+ (CQFQuartzFilter<CQFVariableBlur> *)variableBlurFilterWithCurrent:(nullable id)current;
++ (CQFQuartzFilter<CQFVariableBlur> * _Nullable)variableBlurFilterWithCurrent:(nullable id)current NS_SWIFT_NAME(variableBlur(with:));
 
 @end
 

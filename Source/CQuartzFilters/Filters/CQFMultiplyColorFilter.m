@@ -5,6 +5,7 @@
 
 #import "CQFFilterPropertyImpl.h"
 #import "CQFMultiplyColorFilter.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFMultiplyColorFilter : CQFQuartzFilter <CQFMultiplyColor>
 @end
@@ -18,14 +19,18 @@ CQF_FP_IMPL(color)
 @implementation CQFQuartzFilter (CQFMultiplyColor)
 
 + (CQFQuartzFilter<CQFMultiplyColor> *)multiplyColorFilter {
-    return [self multiplyColorFilterWithCurrent:nil];
+    return [[CQFMultiplyColorFilter alloc] initWithType:CQFQuartzFilterTypeMultiplyColor];
 }
 
-+ (CQFQuartzFilter<CQFMultiplyColor> *)multiplyColorFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFMultiplyColorFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFMultiplyColor> * _Nullable)multiplyColorFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFMultiplyColorFilter alloc] initWithType:CQFQuartzFilterTypeMultiplyColor];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeMultiplyColor]) {
+        return nil;
+    }
+    return [[CQFMultiplyColorFilter alloc] initWithFilter:filter];
 }
 
 @end

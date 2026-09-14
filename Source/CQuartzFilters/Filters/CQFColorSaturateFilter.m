@@ -5,6 +5,7 @@
 
 #import "CQFColorSaturateFilter.h"
 #import "CQFFilterPropertyImpl.h"
+#import "CQuartzFiltersPrivate.h"
 
 @interface CQFColorSaturateFilter : CQFQuartzFilter <CQFColorSaturate>
 @end
@@ -18,14 +19,18 @@ CQF_FP_IMPL(amount)
 @implementation CQFQuartzFilter (CQFColorSaturate)
 
 + (CQFQuartzFilter<CQFColorSaturate> *)colorSaturateFilter {
-    return [self colorSaturateFilterWithCurrent:nil];
+    return [[CQFColorSaturateFilter alloc] initWithType:CQFQuartzFilterTypeColorSaturate];
 }
 
-+ (CQFQuartzFilter<CQFColorSaturate> *)colorSaturateFilterWithCurrent:(id<CQFCAFilterProtocol>)current {
-    if (current) {
-        return [[CQFColorSaturateFilter alloc] initWithFilter:current];
++ (CQFQuartzFilter<CQFColorSaturate> * _Nullable)colorSaturateFilterWithCurrent:(nullable id)current {
+    if (!current || ![NSStringFromClass([current class]) isEqualToString:kCQFCAFilterClassName]) {
+        return nil;
     }
-    return [[CQFColorSaturateFilter alloc] initWithType:CQFQuartzFilterTypeColorSaturate];
+    id<CQFCAFilterProtocol> filter = (id<CQFCAFilterProtocol>) current;
+    if (![filter.type isEqualToString:CQFQuartzFilterTypeColorSaturate]) {
+        return nil;
+    }
+    return [[CQFColorSaturateFilter alloc] initWithFilter:filter];
 }
 
 @end
