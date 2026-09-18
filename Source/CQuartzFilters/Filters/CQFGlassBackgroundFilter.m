@@ -152,6 +152,24 @@ CQF_FP_IMPL(clamp)
 
 CQF_FP_IMPL(clampPreserveHue)
 
+CQF_FP_IMPL(blurFillDarkenOpacity)
+
+CQF_FP_IMPL(blurFillLightenOpacity)
+
+CQF_FP_IMPL(blurFillNormalOpacity)
+
+CQF_FP_IMPL(faceColorMatrixMaxLumaSDR)
+
+CQF_FP_IMPL(keyFillHighlightColorBias)
+
+CQF_FP_IMPL(keyFillHighlightEffectOffset)
+
+CQF_FP_IMPL(keyFillHighlightSpreadSDR)
+
+CQF_FP_IMPL(ringShadowMask)
+
+CQF_FP_IMPL(ringShadowStrokeWidth)
+
 @end
 
 @implementation CQFQuartzFilter (CQFGlassBackground)

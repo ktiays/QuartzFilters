@@ -94,6 +94,18 @@
 #define CQF_FP_refractionOpacity_KIND       NUMBER
 #define CQF_FP_refractionOpacity_KEY        RefractionOpacity
 
+#define CQF_FP_blurFillDarkenOpacity_TYPE   CGFloat
+#define CQF_FP_blurFillDarkenOpacity_KIND   NUMBER
+#define CQF_FP_blurFillDarkenOpacity_KEY    BlurFillDarkenOpacity
+
+#define CQF_FP_blurFillLightenOpacity_TYPE  CGFloat
+#define CQF_FP_blurFillLightenOpacity_KIND  NUMBER
+#define CQF_FP_blurFillLightenOpacity_KEY   BlurFillLightenOpacity
+
+#define CQF_FP_blurFillNormalOpacity_TYPE   CGFloat
+#define CQF_FP_blurFillNormalOpacity_KIND   NUMBER
+#define CQF_FP_blurFillNormalOpacity_KEY    BlurFillNormalOpacity
+
 #define CQF_FP_blurRadius_TYPE              CGFloat
 #define CQF_FP_blurRadius_KIND              NUMBER
 #define CQF_FP_blurRadius_KEY               BlurRadius
@@ -150,9 +162,25 @@
 #define CQF_FP_faceColorMatrixBlack_KIND    NUMBER
 #define CQF_FP_faceColorMatrixBlack_KEY     FaceColorMatrixBlack
 
+#define CQF_FP_faceColorMatrixMaxLumaSDR_TYPE   CGFloat
+#define CQF_FP_faceColorMatrixMaxLumaSDR_KIND   NUMBER
+#define CQF_FP_faceColorMatrixMaxLumaSDR_KEY    FaceColorMatrixMaxLumaSDR
+
 #define CQF_FP_faceColorMatrixSaturation_TYPE   CGFloat
 #define CQF_FP_faceColorMatrixSaturation_KIND   NUMBER
 #define CQF_FP_faceColorMatrixSaturation_KEY    FaceColorMatrixSaturation
+
+#define CQF_FP_keyFillHighlightColorBias_TYPE   CGFloat
+#define CQF_FP_keyFillHighlightColorBias_KIND   NUMBER
+#define CQF_FP_keyFillHighlightColorBias_KEY    KeyFillHighlightColorBias
+
+#define CQF_FP_keyFillHighlightEffectOffset_TYPE    CGFloat
+#define CQF_FP_keyFillHighlightEffectOffset_KIND    NUMBER
+#define CQF_FP_keyFillHighlightEffectOffset_KEY     KeyFillHighlightEffectOffset
+
+#define CQF_FP_keyFillHighlightSpreadSDR_TYPE   CGFloat
+#define CQF_FP_keyFillHighlightSpreadSDR_KIND   NUMBER
+#define CQF_FP_keyFillHighlightSpreadSDR_KEY    KeyFillHighlightSpreadSDR
 
 #define CQF_FP_bleedAmount_TYPE             CGFloat
 #define CQF_FP_bleedAmount_KIND             NUMBER
@@ -249,6 +277,14 @@
 #define CQF_FP_shadowVibrancyContribution_TYPE  CGFloat
 #define CQF_FP_shadowVibrancyContribution_KIND  NUMBER
 #define CQF_FP_shadowVibrancyContribution_KEY   ShadowVibrancyContribution
+
+#define CQF_FP_ringShadowMask_TYPE          CGFloat
+#define CQF_FP_ringShadowMask_KIND          NUMBER
+#define CQF_FP_ringShadowMask_KEY           RingShadowMask
+
+#define CQF_FP_ringShadowStrokeWidth_TYPE   CGFloat
+#define CQF_FP_ringShadowStrokeWidth_KIND   NUMBER
+#define CQF_FP_ringShadowStrokeWidth_KEY    RingShadowStrokeWidth
 
 #define CQF_FP_radius_TYPE              CGFloat
 #define CQF_FP_radius_KIND              NUMBER
