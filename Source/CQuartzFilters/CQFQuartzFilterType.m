@@ -3,6 +3,8 @@
 //  Copyright (c) 2026 ktiays. All rights reserved.
 //
 
+#import <TargetConditionals.h>
+
 #import "CQFQuartzFilterType.h"
 
 #ifndef __IMPL_CQFFILTER_TYPE__
@@ -34,6 +36,9 @@ __IMPL_CQFFILTER_TYPE__(EdrGainMultiply, edrGainMultiply);
 __IMPL_CQFFILTER_TYPE__(GaussianBlur, gaussianBlur);
 __IMPL_CQFFILTER_TYPE__(GlassBackground, glassBackground);
 __IMPL_CQFFILTER_TYPE__(GlassForeground, glassForeground);
+#if !TARGET_OS_OSX
+__IMPL_CQFFILTER_TYPE__(HomeAffordanceBase, homeAffordanceBase);
+#endif
 __IMPL_CQFFILTER_TYPE__(LanczosResize, lanczosResize);
 __IMPL_CQFFILTER_TYPE__(LimitAveragePixelLuminance, limitAveragePixelLuminance);
 __IMPL_CQFFILTER_TYPE__(LuminanceCurveMap, luminanceCurveMap);

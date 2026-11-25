@@ -20,9 +20,19 @@ CQF_FP_IMPL(dither)
 
 CQF_FP_IMPL(normalizeEdges)
 
+CQF_FP_IMPL(normalizeEdgesTransparent)
+
 CQF_FP_IMPL(sourceSublayerName)
 
 CQF_FP_IMPL(fade)
+
+CQF_FP_IMPL(blurFillBlurRadius)
+
+CQF_FP_IMPL(blurFillDarkenOpacity)
+
+CQF_FP_IMPL(blurFillLightenOpacity)
+
+CQF_FP_IMPL(blurFillNormalOpacity)
 
 @end
 

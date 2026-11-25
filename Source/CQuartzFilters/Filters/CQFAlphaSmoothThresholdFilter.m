@@ -7,6 +7,7 @@
 #import "CQFFilterPropertyImpl.h"
 #import "CQuartzFiltersPrivate.h"
 
+API_AVAILABLE(ios(18.1), macos(15.1))
 @interface CQFAlphaSmoothThresholdFilter : CQFQuartzFilter <CQFAlphaSmoothThreshold>
 @end
 

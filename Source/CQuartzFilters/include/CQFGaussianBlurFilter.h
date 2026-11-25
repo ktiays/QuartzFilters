@@ -19,9 +19,19 @@ CQF_FP_DECL(radius);
 
 CQF_FP_DECL(quality);
 
+CQF_FP_DECL(bounds);
+
 CQF_FP_DECL(normalizeEdges);
 
+CQF_FP_DECL(normalizeEdgesTransparent) API_AVAILABLE(ios(17.0), macos(14.0));
+
 CQF_FP_DECL(hardEdges);
+
+CQF_FP_DECL(dither);
+
+CQF_FP_DECL(linear);
+
+CQF_FP_DECL(intermediateBitDepth);
 
 @end
 

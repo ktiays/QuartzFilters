@@ -9,9 +9,9 @@
 //
 //      CQF_FP_<name>_TYPE  — the Objective-C value type.
 //      CQF_FP_<name>_KIND  — the property kind tag (NUMBER, BOOL, STRING,
-//                            CGTYPE, ARRAY, COLOR_MATRIX). Drives dispatch
-//                            inside `CQF_FP_DECL(name)` / `CQF_FP_IMPL(name)`
-//                            via token-paste re-expansion.
+//                            CGTYPE, POINT, RECT, ARRAY, COLOR_MATRIX). Drives
+//                            dispatch inside `CQF_FP_DECL(name)` /
+//                            `CQF_FP_IMPL(name)` via token-paste re-expansion.
 //      CQF_FP_<name>_KEY   — the input-key suffix (PascalCase). Drives
 //                            derivation of the input-key constant
 //                            (`CQFQuartzFilterInputKey<KEY>`) and the setter
@@ -42,29 +42,77 @@
 #pragma mark - Property metadata
 
 // Numeric (CGFloat).
-#define CQF_FP_amount_TYPE              CGFloat
-#define CQF_FP_amount_KIND              NUMBER
-#define CQF_FP_amount_KEY               Amount
+#define CQF_FP_aberrationAmount_TYPE        CGFloat
+#define CQF_FP_aberrationAmount_KIND        NUMBER
+#define CQF_FP_aberrationAmount_KEY         AberrationAmount
 
-#define CQF_FP_start_TYPE               CGFloat
-#define CQF_FP_start_KIND               NUMBER
-#define CQF_FP_start_KEY                Start
+#define CQF_FP_aberrationAngle_TYPE         CGFloat
+#define CQF_FP_aberrationAngle_KIND         NUMBER
+#define CQF_FP_aberrationAngle_KEY          AberrationAngle
 
-#define CQF_FP_end_TYPE                 CGFloat
-#define CQF_FP_end_KIND                 NUMBER
-#define CQF_FP_end_KEY                  End
+#define CQF_FP_aberrationHeight_TYPE        CGFloat
+#define CQF_FP_aberrationHeight_KIND        NUMBER
+#define CQF_FP_aberrationHeight_KEY         AberrationHeight
 
-#define CQF_FP_backdropAware_TYPE       CGFloat
-#define CQF_FP_backdropAware_KIND       NUMBER
-#define CQF_FP_backdropAware_KEY        BackdropAware
+#define CQF_FP_aberrationOffset_TYPE        CGFloat
+#define CQF_FP_aberrationOffset_KIND        NUMBER
+#define CQF_FP_aberrationOffset_KEY         AberrationOffset
 
-#define CQF_FP_clamp_TYPE               CGFloat
-#define CQF_FP_clamp_KIND               NUMBER
-#define CQF_FP_clamp_KEY                Clamp
+#define CQF_FP_addWhite_TYPE                CGFloat
+#define CQF_FP_addWhite_KIND                NUMBER
+#define CQF_FP_addWhite_KEY                 AddWhite
 
-#define CQF_FP_clampPreserveHue_TYPE    CGFloat
-#define CQF_FP_clampPreserveHue_KIND    NUMBER
-#define CQF_FP_clampPreserveHue_KEY     ClampPreserveHue
+#define CQF_FP_amount_TYPE                  CGFloat
+#define CQF_FP_amount_KIND                  NUMBER
+#define CQF_FP_amount_KEY                   Amount
+
+#define CQF_FP_angle_TYPE                   CGFloat
+#define CQF_FP_angle_KIND                   NUMBER
+#define CQF_FP_angle_KEY                    Angle
+
+#define CQF_FP_aspectRatio_TYPE             CGFloat
+#define CQF_FP_aspectRatio_KIND             NUMBER
+#define CQF_FP_aspectRatio_KEY              AspectRatio
+
+#define CQF_FP_bias_TYPE                    CGFloat
+#define CQF_FP_bias_KIND                    NUMBER
+#define CQF_FP_bias_KEY                     Bias
+
+#define CQF_FP_start_TYPE                   CGFloat
+#define CQF_FP_start_KIND                   NUMBER
+#define CQF_FP_start_KEY                    Start
+
+#define CQF_FP_startAngle_TYPE              CGFloat
+#define CQF_FP_startAngle_KIND              NUMBER
+#define CQF_FP_startAngle_KEY               StartAngle
+
+#define CQF_FP_end_TYPE                     CGFloat
+#define CQF_FP_end_KIND                     NUMBER
+#define CQF_FP_end_KEY                      End
+
+#define CQF_FP_endAngle_TYPE                CGFloat
+#define CQF_FP_endAngle_KIND                NUMBER
+#define CQF_FP_endAngle_KEY                 EndAngle
+
+#define CQF_FP_clamp_TYPE                   CGFloat
+#define CQF_FP_clamp_KIND                   NUMBER
+#define CQF_FP_clamp_KEY                    Clamp
+
+#define CQF_FP_edgeStart_TYPE               CGFloat
+#define CQF_FP_edgeStart_KIND               NUMBER
+#define CQF_FP_edgeStart_KEY                EdgeStart
+
+#define CQF_FP_edgeEnd_TYPE                 CGFloat
+#define CQF_FP_edgeEnd_KIND                 NUMBER
+#define CQF_FP_edgeEnd_KEY                  EdgeEnd
+
+#define CQF_FP_edgeOpacityStart_TYPE        CGFloat
+#define CQF_FP_edgeOpacityStart_KIND        NUMBER
+#define CQF_FP_edgeOpacityStart_KEY         EdgeOpacityStart
+
+#define CQF_FP_edgeOpacityEnd_TYPE          CGFloat
+#define CQF_FP_edgeOpacityEnd_KIND          NUMBER
+#define CQF_FP_edgeOpacityEnd_KEY           EdgeOpacityEnd
 
 #define CQF_FP_innerRefractionAmount_TYPE   CGFloat
 #define CQF_FP_innerRefractionAmount_KIND   NUMBER
@@ -82,6 +130,18 @@
 #define CQF_FP_outerRefractionHeight_KIND   NUMBER
 #define CQF_FP_outerRefractionHeight_KEY    OuterRefractionHeight
 
+#define CQF_FP_overlayOpacity_TYPE          CGFloat
+#define CQF_FP_overlayOpacity_KIND          NUMBER
+#define CQF_FP_overlayOpacity_KEY           OverlayOpacity
+
+#define CQF_FP_refractionAmount_TYPE        CGFloat
+#define CQF_FP_refractionAmount_KIND        NUMBER
+#define CQF_FP_refractionAmount_KEY         RefractionAmount
+
+#define CQF_FP_refractionAngle_TYPE         CGFloat
+#define CQF_FP_refractionAngle_KIND         NUMBER
+#define CQF_FP_refractionAngle_KEY          RefractionAngle
+
 #define CQF_FP_refractionDistance0_TYPE     CGFloat
 #define CQF_FP_refractionDistance0_KIND     NUMBER
 #define CQF_FP_refractionDistance0_KEY      RefractionDistance0
@@ -90,9 +150,21 @@
 #define CQF_FP_refractionDistance1_KIND     NUMBER
 #define CQF_FP_refractionDistance1_KEY      RefractionDistance1
 
+#define CQF_FP_refractionHeight_TYPE        CGFloat
+#define CQF_FP_refractionHeight_KIND        NUMBER
+#define CQF_FP_refractionHeight_KEY         RefractionHeight
+
+#define CQF_FP_refractionOffset_TYPE        CGFloat
+#define CQF_FP_refractionOffset_KIND        NUMBER
+#define CQF_FP_refractionOffset_KEY         RefractionOffset
+
 #define CQF_FP_refractionOpacity_TYPE       CGFloat
 #define CQF_FP_refractionOpacity_KIND       NUMBER
 #define CQF_FP_refractionOpacity_KEY        RefractionOpacity
+
+#define CQF_FP_blurFillBlurRadius_TYPE      CGFloat
+#define CQF_FP_blurFillBlurRadius_KIND      NUMBER
+#define CQF_FP_blurFillBlurRadius_KEY       BlurFillBlurRadius
 
 #define CQF_FP_blurFillDarkenOpacity_TYPE   CGFloat
 #define CQF_FP_blurFillDarkenOpacity_KIND   NUMBER
@@ -162,6 +234,10 @@
 #define CQF_FP_faceColorMatrixBlack_KIND    NUMBER
 #define CQF_FP_faceColorMatrixBlack_KEY     FaceColorMatrixBlack
 
+#define CQF_FP_faceColorMatrixMaxLuma_TYPE      CGFloat
+#define CQF_FP_faceColorMatrixMaxLuma_KIND      NUMBER
+#define CQF_FP_faceColorMatrixMaxLuma_KEY       FaceColorMatrixMaxLuma
+
 #define CQF_FP_faceColorMatrixMaxLumaSDR_TYPE   CGFloat
 #define CQF_FP_faceColorMatrixMaxLumaSDR_KIND   NUMBER
 #define CQF_FP_faceColorMatrixMaxLumaSDR_KEY    FaceColorMatrixMaxLumaSDR
@@ -170,6 +246,14 @@
 #define CQF_FP_faceColorMatrixSaturation_KIND   NUMBER
 #define CQF_FP_faceColorMatrixSaturation_KEY    FaceColorMatrixSaturation
 
+#define CQF_FP_keyFillHighlightAmount_TYPE      CGFloat
+#define CQF_FP_keyFillHighlightAmount_KIND      NUMBER
+#define CQF_FP_keyFillHighlightAmount_KEY       KeyFillHighlightAmount
+
+#define CQF_FP_keyFillHighlightAngle_TYPE       CGFloat
+#define CQF_FP_keyFillHighlightAngle_KIND       NUMBER
+#define CQF_FP_keyFillHighlightAngle_KEY        KeyFillHighlightAngle
+
 #define CQF_FP_keyFillHighlightColorBias_TYPE   CGFloat
 #define CQF_FP_keyFillHighlightColorBias_KIND   NUMBER
 #define CQF_FP_keyFillHighlightColorBias_KEY    KeyFillHighlightColorBias
@@ -177,6 +261,14 @@
 #define CQF_FP_keyFillHighlightEffectOffset_TYPE    CGFloat
 #define CQF_FP_keyFillHighlightEffectOffset_KIND    NUMBER
 #define CQF_FP_keyFillHighlightEffectOffset_KEY     KeyFillHighlightEffectOffset
+
+#define CQF_FP_keyFillHighlightHeight_TYPE      CGFloat
+#define CQF_FP_keyFillHighlightHeight_KIND      NUMBER
+#define CQF_FP_keyFillHighlightHeight_KEY       KeyFillHighlightHeight
+
+#define CQF_FP_keyFillHighlightSpread_TYPE      CGFloat
+#define CQF_FP_keyFillHighlightSpread_KIND      NUMBER
+#define CQF_FP_keyFillHighlightSpread_KEY       KeyFillHighlightSpread
 
 #define CQF_FP_keyFillHighlightSpreadSDR_TYPE   CGFloat
 #define CQF_FP_keyFillHighlightSpreadSDR_KIND   NUMBER
@@ -218,6 +310,14 @@
 #define CQF_FP_bleedColorMatrixSaturation_KIND  NUMBER
 #define CQF_FP_bleedColorMatrixSaturation_KEY   BleedColorMatrixSaturation
 
+#define CQF_FP_lineWidth_TYPE               CGFloat
+#define CQF_FP_lineWidth_KIND               NUMBER
+#define CQF_FP_lineWidth_KEY                LineWidth
+
+#define CQF_FP_scale_TYPE                   CGFloat
+#define CQF_FP_scale_KIND                   NUMBER
+#define CQF_FP_scale_KEY                    Scale
+
 #define CQF_FP_shadowAmount_TYPE            CGFloat
 #define CQF_FP_shadowAmount_KIND            NUMBER
 #define CQF_FP_shadowAmount_KEY             ShadowAmount
@@ -254,6 +354,10 @@
 #define CQF_FP_shadowRadius_KIND            NUMBER
 #define CQF_FP_shadowRadius_KEY             ShadowRadius
 
+#define CQF_FP_sharpness_TYPE               CGFloat
+#define CQF_FP_sharpness_KIND               NUMBER
+#define CQF_FP_sharpness_KEY                Sharpness
+
 #define CQF_FP_sdrHoldingToneWhite_TYPE     CGFloat
 #define CQF_FP_sdrHoldingToneWhite_KIND     NUMBER
 #define CQF_FP_sdrHoldingToneWhite_KEY      SDRHoldingToneWhite
@@ -278,87 +382,247 @@
 #define CQF_FP_shadowVibrancyContribution_KIND  NUMBER
 #define CQF_FP_shadowVibrancyContribution_KEY   ShadowVibrancyContribution
 
+#define CQF_FP_ringShadowBlurRadius_TYPE    CGFloat
+#define CQF_FP_ringShadowBlurRadius_KIND    NUMBER
+#define CQF_FP_ringShadowBlurRadius_KEY     RingShadowBlurRadius
+
 #define CQF_FP_ringShadowMask_TYPE          CGFloat
 #define CQF_FP_ringShadowMask_KIND          NUMBER
 #define CQF_FP_ringShadowMask_KEY           RingShadowMask
+
+#define CQF_FP_ringShadowOffset_TYPE        CGFloat
+#define CQF_FP_ringShadowOffset_KIND        NUMBER
+#define CQF_FP_ringShadowOffset_KEY         RingShadowOffset
+
+#define CQF_FP_ringShadowOpacity_TYPE       CGFloat
+#define CQF_FP_ringShadowOpacity_KIND       NUMBER
+#define CQF_FP_ringShadowOpacity_KEY        RingShadowOpacity
 
 #define CQF_FP_ringShadowStrokeWidth_TYPE   CGFloat
 #define CQF_FP_ringShadowStrokeWidth_KIND   NUMBER
 #define CQF_FP_ringShadowStrokeWidth_KEY    RingShadowStrokeWidth
 
-#define CQF_FP_radius_TYPE              CGFloat
-#define CQF_FP_radius_KIND              NUMBER
-#define CQF_FP_radius_KEY               Radius
+#define CQF_FP_radius_TYPE                  CGFloat
+#define CQF_FP_radius_KIND                  NUMBER
+#define CQF_FP_radius_KEY                   Radius
+
+#define CQF_FP_time_TYPE                    CGFloat
+#define CQF_FP_time_KIND                    NUMBER
+#define CQF_FP_time_KEY                     Time
 
 // Boolean.
-#define CQF_FP_dither_TYPE              BOOL
-#define CQF_FP_dither_KIND              BOOL
-#define CQF_FP_dither_KEY               Dither
+#define CQF_FP_adaptive_TYPE                BOOL
+#define CQF_FP_adaptive_KIND                BOOL
+#define CQF_FP_adaptive_KEY                 Adaptive
 
-#define CQF_FP_fade_TYPE                BOOL
-#define CQF_FP_fade_KIND                BOOL
-#define CQF_FP_fade_KEY                 Fade
+#define CQF_FP_allowsGroup_TYPE             BOOL
+#define CQF_FP_allowsGroup_KIND             BOOL
+#define CQF_FP_allowsGroup_KEY              AllowsGroup
 
-#define CQF_FP_hardEdges_TYPE           BOOL
-#define CQF_FP_hardEdges_KIND           BOOL
-#define CQF_FP_hardEdges_KEY            HardEdges
+#define CQF_FP_backEnabled_TYPE             BOOL
+#define CQF_FP_backEnabled_KIND             BOOL
+#define CQF_FP_backEnabled_KEY              BackEnabled
 
-#define CQF_FP_bleedDarkenBlend_TYPE    BOOL
-#define CQF_FP_bleedDarkenBlend_KIND    BOOL
-#define CQF_FP_bleedDarkenBlend_KEY     BleedDarkenBlend
+#define CQF_FP_backdropAware_TYPE           BOOL
+#define CQF_FP_backdropAware_KIND           BOOL
+#define CQF_FP_backdropAware_KEY            BackdropAware
 
-#define CQF_FP_normalizeEdges_TYPE      BOOL
-#define CQF_FP_normalizeEdges_KIND      BOOL
-#define CQF_FP_normalizeEdges_KEY       NormalizeEdges
+#define CQF_FP_clampPreserveHue_TYPE        BOOL
+#define CQF_FP_clampPreserveHue_KIND        BOOL
+#define CQF_FP_clampPreserveHue_KEY         ClampPreserveHue
+
+#define CQF_FP_displayInvertAware_TYPE      BOOL
+#define CQF_FP_displayInvertAware_KIND      BOOL
+#define CQF_FP_displayInvertAware_KEY       DisplayInvertAware
+
+#define CQF_FP_dither_TYPE                  BOOL
+#define CQF_FP_dither_KIND                  BOOL
+#define CQF_FP_dither_KEY                   Dither
+
+#define CQF_FP_extendEdges_TYPE             BOOL
+#define CQF_FP_extendEdges_KIND             BOOL
+#define CQF_FP_extendEdges_KEY              ExtendEdges
+
+#define CQF_FP_fade_TYPE                    BOOL
+#define CQF_FP_fade_KIND                    BOOL
+#define CQF_FP_fade_KEY                     Fade
+
+#define CQF_FP_frontEnabled_TYPE            BOOL
+#define CQF_FP_frontEnabled_KIND            BOOL
+#define CQF_FP_frontEnabled_KEY             FrontEnabled
+
+#define CQF_FP_hardEdges_TYPE               BOOL
+#define CQF_FP_hardEdges_KIND               BOOL
+#define CQF_FP_hardEdges_KEY                HardEdges
+
+#define CQF_FP_hsvSpace_TYPE                BOOL
+#define CQF_FP_hsvSpace_KIND                BOOL
+#define CQF_FP_hsvSpace_KEY                 HSVSpace
+
+#define CQF_FP_invertsShape_TYPE            BOOL
+#define CQF_FP_invertsShape_KIND            BOOL
+#define CQF_FP_invertsShape_KEY             InvertsShape
+
+#define CQF_FP_linear_TYPE                  BOOL
+#define CQF_FP_linear_KIND                  BOOL
+#define CQF_FP_linear_KEY                   Linear
+
+#define CQF_FP_bleedDarkenBlend_TYPE        BOOL
+#define CQF_FP_bleedDarkenBlend_KIND        BOOL
+#define CQF_FP_bleedDarkenBlend_KEY         BleedDarkenBlend
+
+#define CQF_FP_normalizeEdges_TYPE          BOOL
+#define CQF_FP_normalizeEdges_KIND          BOOL
+#define CQF_FP_normalizeEdges_KEY           NormalizeEdges
+
+#define CQF_FP_normalizeEdgesTransparent_TYPE   BOOL
+#define CQF_FP_normalizeEdgesTransparent_KIND   BOOL
+#define CQF_FP_normalizeEdgesTransparent_KEY    NormalizeEdgesTransparent
+
+#define CQF_FP_premultipliedValues_TYPE     BOOL
+#define CQF_FP_premultipliedValues_KIND     BOOL
+#define CQF_FP_premultipliedValues_KEY      PremultipliedValues
+
+#define CQF_FP_reversed_TYPE                BOOL
+#define CQF_FP_reversed_KIND                BOOL
+#define CQF_FP_reversed_KEY                 Reversed
 
 #define CQF_FP_sdrHoldingToneEnabled_TYPE   BOOL
 #define CQF_FP_sdrHoldingToneEnabled_KIND   BOOL
 #define CQF_FP_sdrHoldingToneEnabled_KEY    SDRHoldingToneEnabled
 
-// Nullable NSString *.
-#define CQF_FP_quality_TYPE             NSString *
-#define CQF_FP_quality_KIND             STRING
-#define CQF_FP_quality_KEY              Quality
+#define CQF_FP_useP3Space_TYPE              BOOL
+#define CQF_FP_useP3Space_KIND              BOOL
+#define CQF_FP_useP3Space_KEY               UseP3Space
 
-#define CQF_FP_sourceSublayerName_TYPE  NSString *
-#define CQF_FP_sourceSublayerName_KIND  STRING
-#define CQF_FP_sourceSublayerName_KEY   SourceSublayerName
+// Nullable NSString *.
+#define CQF_FP_intermediateBitDepth_TYPE    NSString *
+#define CQF_FP_intermediateBitDepth_KIND    STRING
+#define CQF_FP_intermediateBitDepth_KEY     IntermediateBitDepth
+
+#define CQF_FP_quality_TYPE                 NSString *
+#define CQF_FP_quality_KIND                 STRING
+#define CQF_FP_quality_KEY                  Quality
+
+#define CQF_FP_renderMode_TYPE              NSString *
+#define CQF_FP_renderMode_KIND              STRING
+#define CQF_FP_renderMode_KEY               RenderMode
+
+#define CQF_FP_sourceSublayerName_TYPE      NSString *
+#define CQF_FP_sourceSublayerName_KIND      STRING
+#define CQF_FP_sourceSublayerName_KEY       SourceSublayerName
 
 // Nullable Core Graphics reference.
-#define CQF_FP_color_TYPE               CGColorRef
-#define CQF_FP_color_KIND               CGTYPE
-#define CQF_FP_color_KEY                Color
+#define CQF_FP_addColor_TYPE                CGColorRef
+#define CQF_FP_addColor_KIND                CGTYPE
+#define CQF_FP_addColor_KEY                 AddColor
+
+#define CQF_FP_backColor0_TYPE              CGColorRef
+#define CQF_FP_backColor0_KIND              CGTYPE
+#define CQF_FP_backColor0_KEY               BackColor0
+
+#define CQF_FP_backColor1_TYPE              CGColorRef
+#define CQF_FP_backColor1_KIND              CGTYPE
+#define CQF_FP_backColor1_KEY               BackColor1
+
+#define CQF_FP_color_TYPE                   CGColorRef
+#define CQF_FP_color_KIND                   CGTYPE
+#define CQF_FP_color_KEY                    Color
+
+#define CQF_FP_color0_TYPE                  CGColorRef
+#define CQF_FP_color0_KIND                  CGTYPE
+#define CQF_FP_color0_KEY                   Color0
+
+#define CQF_FP_color1_TYPE                  CGColorRef
+#define CQF_FP_color1_KIND                  CGTYPE
+#define CQF_FP_color1_KEY                   Color1
+
+#define CQF_FP_colorMap_TYPE                CGImageRef
+#define CQF_FP_colorMap_KIND                CGTYPE
+#define CQF_FP_colorMap_KEY                 ColorMap
 
 #define CQF_FP_faceColorMatrixFillColor_TYPE    CGColorRef
 #define CQF_FP_faceColorMatrixFillColor_KIND    CGTYPE
 #define CQF_FP_faceColorMatrixFillColor_KEY     FaceColorMatrixFillColor
 
+#define CQF_FP_foregroundColor_TYPE         CGColorRef
+#define CQF_FP_foregroundColor_KIND         CGTYPE
+#define CQF_FP_foregroundColor_KEY          ForegroundColor
+
+#define CQF_FP_frontColor_TYPE              CGColorRef
+#define CQF_FP_frontColor_KIND              CGTYPE
+#define CQF_FP_frontColor_KEY               FrontColor
+
 #define CQF_FP_bleedColorMatrixFillColor_TYPE   CGColorRef
 #define CQF_FP_bleedColorMatrixFillColor_KIND   CGTYPE
 #define CQF_FP_bleedColorMatrixFillColor_KEY    BleedColorMatrixFillColor
 
-#define CQF_FP_maskImage_TYPE           CGImageRef
-#define CQF_FP_maskImage_KIND           CGTYPE
-#define CQF_FP_maskImage_KEY            MaskImage
+#define CQF_FP_maskImage_TYPE               CGImageRef
+#define CQF_FP_maskImage_KIND               CGTYPE
+#define CQF_FP_maskImage_KEY                MaskImage
+
+#define CQF_FP_shadowColor_TYPE             CGColorRef
+#define CQF_FP_shadowColor_KIND             CGTYPE
+#define CQF_FP_shadowColor_KEY              ShadowColor
 
 #define CQF_FP_shadowColorMatrixFillColor_TYPE  CGColorRef
 #define CQF_FP_shadowColorMatrixFillColor_KIND  CGTYPE
 #define CQF_FP_shadowColorMatrixFillColor_KEY   ShadowColorMatrixFillColor
 
 // Core Graphics value wrapped in NSValue.
-#define CQF_FP_shadowOffset_TYPE        CGPoint
-#define CQF_FP_shadowOffset_KIND        POINT
-#define CQF_FP_shadowOffset_KEY         ShadowOffset
+#define CQF_FP_blueOffset_TYPE              CGPoint
+#define CQF_FP_blueOffset_KIND              POINT
+#define CQF_FP_blueOffset_KEY               BlueOffset
+
+#define CQF_FP_bounds_TYPE                  CGRect
+#define CQF_FP_bounds_KIND                  RECT
+#define CQF_FP_bounds_KEY                   Bounds
+
+#define CQF_FP_greenOffset_TYPE             CGPoint
+#define CQF_FP_greenOffset_KIND             POINT
+#define CQF_FP_greenOffset_KEY              GreenOffset
+
+#define CQF_FP_offset_TYPE                  CGPoint
+#define CQF_FP_offset_KIND                  POINT
+#define CQF_FP_offset_KEY                   Offset
+
+#define CQF_FP_redOffset_TYPE               CGPoint
+#define CQF_FP_redOffset_KIND               POINT
+#define CQF_FP_redOffset_KEY                RedOffset
+
+#define CQF_FP_shadowBounds_TYPE            CGRect
+#define CQF_FP_shadowBounds_KIND            RECT
+#define CQF_FP_shadowBounds_KEY             ShadowBounds
+
+#define CQF_FP_shadowOffset_TYPE            CGPoint
+#define CQF_FP_shadowOffset_KIND            POINT
+#define CQF_FP_shadowOffset_KEY             ShadowOffset
 
 // NSArray<NSNumber *>.
-#define CQF_FP_values_TYPE              NSArray<NSNumber *> *
-#define CQF_FP_values_KIND              ARRAY
-#define CQF_FP_values_KEY               Values
+#define CQF_FP_alphaValues_TYPE             NSArray<NSNumber *> *
+#define CQF_FP_alphaValues_KIND             ARRAY
+#define CQF_FP_alphaValues_KEY              AlphaValues
+
+#define CQF_FP_blueValues_TYPE              NSArray<NSNumber *> *
+#define CQF_FP_blueValues_KIND              ARRAY
+#define CQF_FP_blueValues_KEY               BlueValues
+
+#define CQF_FP_greenValues_TYPE             NSArray<NSNumber *> *
+#define CQF_FP_greenValues_KIND             ARRAY
+#define CQF_FP_greenValues_KEY              GreenValues
+
+#define CQF_FP_redValues_TYPE               NSArray<NSNumber *> *
+#define CQF_FP_redValues_KIND               ARRAY
+#define CQF_FP_redValues_KEY                RedValues
+
+#define CQF_FP_values_TYPE                  NSArray<NSNumber *> *
+#define CQF_FP_values_KIND                  ARRAY
+#define CQF_FP_values_KEY                   Values
 
 // CQFColorMatrix.
-#define CQF_FP_colorMatrix_TYPE         CQFColorMatrix
-#define CQF_FP_colorMatrix_KIND         COLOR_MATRIX
-#define CQF_FP_colorMatrix_KEY          ColorMatrix
+#define CQF_FP_colorMatrix_TYPE             CQFColorMatrix
+#define CQF_FP_colorMatrix_KIND             COLOR_MATRIX
+#define CQF_FP_colorMatrix_KEY              ColorMatrix
 
 #pragma mark - DECL templates (one per kind)
 
@@ -367,6 +631,7 @@
 #define CQF_FP_DECL_STRING_(NAME)         @property (nonatomic, copy, nullable) CQF_FP_##NAME##_TYPE NAME
 #define CQF_FP_DECL_CGTYPE_(NAME)         @property (nonatomic, assign, nullable) CQF_FP_##NAME##_TYPE NAME
 #define CQF_FP_DECL_POINT_(NAME)          @property (nonatomic, assign) CQF_FP_##NAME##_TYPE NAME
+#define CQF_FP_DECL_RECT_(NAME)           @property (nonatomic, assign) CQF_FP_##NAME##_TYPE NAME
 #define CQF_FP_DECL_ARRAY_(NAME)          @property (nonatomic, copy) CQF_FP_##NAME##_TYPE NAME
 #define CQF_FP_DECL_COLOR_MATRIX_(NAME)   @property (nonatomic, assign) CQF_FP_##NAME##_TYPE NAME
 

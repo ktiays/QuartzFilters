@@ -18,6 +18,8 @@ NS_SWIFT_NAME(ColorMatrixProtocol)
 /// The color matrix applied by the filter.
 CQF_FP_DECL(colorMatrix);
 
+CQF_FP_DECL(premultipliedValues) API_AVAILABLE(ios(16.0), macos(13.0));
+
 @end
 
 @interface CQFQuartzFilter (CQFColorMatrixProtocol)

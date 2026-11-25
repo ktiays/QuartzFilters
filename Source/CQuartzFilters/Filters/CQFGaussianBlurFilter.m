@@ -16,9 +16,19 @@ CQF_FP_IMPL(radius)
 
 CQF_FP_IMPL(quality)
 
+CQF_FP_IMPL(bounds)
+
 CQF_FP_IMPL(normalizeEdges)
 
+CQF_FP_IMPL(normalizeEdgesTransparent)
+
 CQF_FP_IMPL(hardEdges)
+
+CQF_FP_IMPL(dither)
+
+CQF_FP_IMPL(linear)
+
+CQF_FP_IMPL(intermediateBitDepth)
 
 @end
 

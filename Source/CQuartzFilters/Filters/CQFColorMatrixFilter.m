@@ -14,6 +14,8 @@
 
 CQF_FP_IMPL(colorMatrix)
 
+CQF_FP_IMPL(premultipliedValues)
+
 @end
 
 @implementation CQFQuartzFilter (CQFColorMatrixProtocol)

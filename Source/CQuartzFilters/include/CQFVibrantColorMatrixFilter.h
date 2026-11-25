@@ -17,9 +17,9 @@ NS_SWIFT_NAME(VibrantColorMatrix)
 
 CQF_FP_DECL(colorMatrix);
 
-CQF_FP_DECL(clamp);
+CQF_FP_DECL(clamp) API_AVAILABLE(ios(26.0), macos(26.0));
 
-CQF_FP_DECL(clampPreserveHue);
+CQF_FP_DECL(clampPreserveHue) API_AVAILABLE(ios(26.0), macos(26.0));
 
 CQF_FP_DECL(backdropAware) API_AVAILABLE(ios(26.0), macos(26.0));
 

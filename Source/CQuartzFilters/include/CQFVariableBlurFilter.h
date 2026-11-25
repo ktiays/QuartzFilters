@@ -28,9 +28,19 @@ CQF_FP_DECL(dither);
 /// A Boolean value that indicates whether edges are normalized during the blur operation.
 CQF_FP_DECL(normalizeEdges);
 
+CQF_FP_DECL(normalizeEdgesTransparent) API_AVAILABLE(ios(17.0), macos(14.0));
+
 CQF_FP_DECL(sourceSublayerName) API_AVAILABLE(ios(26.0), macos(26.0));
 
 CQF_FP_DECL(fade) API_AVAILABLE(ios(26.0), macos(26.0));
+
+CQF_FP_DECL(blurFillBlurRadius) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(blurFillDarkenOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(blurFillLightenOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(blurFillNormalOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 @end
 

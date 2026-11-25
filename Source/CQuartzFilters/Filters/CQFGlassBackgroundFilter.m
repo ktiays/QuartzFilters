@@ -7,6 +7,7 @@
 #import "CQFGlassBackgroundFilter.h"
 #import "CQuartzFiltersPrivate.h"
 
+API_AVAILABLE(ios(26.0), macos(26.0), tvos(26.0), watchos(26.0), visionos(26.0))
 @interface CQFGlassBackgroundFilter : CQFQuartzFilter <CQFGlassBackground>
 @end
 
@@ -152,23 +153,49 @@ CQF_FP_IMPL(clamp)
 
 CQF_FP_IMPL(clampPreserveHue)
 
+CQF_FP_IMPL(blurFillBlurRadius)
+
 CQF_FP_IMPL(blurFillDarkenOpacity)
 
 CQF_FP_IMPL(blurFillLightenOpacity)
 
 CQF_FP_IMPL(blurFillNormalOpacity)
 
+CQF_FP_IMPL(faceColorMatrixMaxLuma)
+
 CQF_FP_IMPL(faceColorMatrixMaxLumaSDR)
+
+CQF_FP_IMPL(keyFillHighlightAmount)
+
+CQF_FP_IMPL(keyFillHighlightAngle)
 
 CQF_FP_IMPL(keyFillHighlightColorBias)
 
 CQF_FP_IMPL(keyFillHighlightEffectOffset)
 
+CQF_FP_IMPL(keyFillHighlightHeight)
+
+CQF_FP_IMPL(keyFillHighlightSpread)
+
 CQF_FP_IMPL(keyFillHighlightSpreadSDR)
+
+CQF_FP_IMPL(ringShadowBlurRadius)
 
 CQF_FP_IMPL(ringShadowMask)
 
+CQF_FP_IMPL(ringShadowOffset)
+
+CQF_FP_IMPL(ringShadowOpacity)
+
 CQF_FP_IMPL(ringShadowStrokeWidth)
+
+CQF_FP_IMPL(aberrationAmount)
+
+CQF_FP_IMPL(aberrationHeight)
+
+CQF_FP_IMPL(aberrationOffset)
+
+CQF_FP_IMPL(aberrationAngle)
 
 @end
 

@@ -125,23 +125,49 @@ CQF_FP_DECL(clamp);
 CQF_FP_DECL(clampPreserveHue);
 
 /// Captured from UIKit `CAFilter setValue:forKey:` on `glassBackground` in iOS 27.
+CQF_FP_DECL(blurFillBlurRadius) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
 CQF_FP_DECL(blurFillDarkenOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 CQF_FP_DECL(blurFillLightenOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 CQF_FP_DECL(blurFillNormalOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
+CQF_FP_DECL(faceColorMatrixMaxLuma) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
 CQF_FP_DECL(faceColorMatrixMaxLumaSDR) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(keyFillHighlightAmount) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(keyFillHighlightAngle) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 CQF_FP_DECL(keyFillHighlightColorBias) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 CQF_FP_DECL(keyFillHighlightEffectOffset) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
+CQF_FP_DECL(keyFillHighlightHeight) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(keyFillHighlightSpread) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
 CQF_FP_DECL(keyFillHighlightSpreadSDR) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(ringShadowBlurRadius) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 CQF_FP_DECL(ringShadowMask) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
+CQF_FP_DECL(ringShadowOffset) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(ringShadowOpacity) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
 CQF_FP_DECL(ringShadowStrokeWidth) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(aberrationAmount) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(aberrationHeight) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(aberrationOffset) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
+
+CQF_FP_DECL(aberrationAngle) API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0));
 
 @end
 

@@ -91,6 +91,23 @@
                                       forKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];         \
     }
 
+#define CQF_FP_IMPL_RECT_(NAME)                                                               \
+    - (CQF_FP_##NAME##_TYPE)NAME {                                                            \
+        id value = [(NSObject *) self.caFilter                                                \
+                    valueForKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];                      \
+        if (![value isKindOfClass:[NSValue class]]) {                                         \
+            return CGRectZero;                                                                \
+        }                                                                                     \
+        CGRect rect = CGRectZero;                                                             \
+        [(NSValue *) value getValue:&rect];                                                   \
+        return rect;                                                                          \
+    }                                                                                         \
+    - (void)CQF_FP_SETTER_(CQF_FP_##NAME##_KEY):(CQF_FP_##NAME##_TYPE)value {                 \
+        [(NSObject *) self.caFilter setValue:[NSValue valueWithBytes:&value                   \
+                                                            objCType:@encode(CGRect)]         \
+                                      forKey:CQF_FP_INPUT_KEY_(CQF_FP_##NAME##_KEY)];         \
+    }
+
 #define CQF_FP_IMPL_ARRAY_(NAME)                                                              \
     - (CQF_FP_##NAME##_TYPE)NAME {                                                            \
         return [(NSObject *) self.caFilter                                                    \
@@ -119,6 +136,11 @@
 
 #define CQF_FP_IMPL(NAME)                       CQF_FP_IMPL_DISPATCH_(CQF_FP_##NAME##_KIND, NAME)
 #define CQF_FP_IMPL_DISPATCH_(KIND, NAME)       CQF_FP_IMPL_DISPATCH__(KIND, NAME)
-#define CQF_FP_IMPL_DISPATCH__(KIND, NAME)      CQF_FP_IMPL_##KIND##_(NAME)
+#define CQF_FP_IMPL_DISPATCH__(KIND, NAME)                                                    \
+    _Pragma("clang diagnostic push")                                                          \
+    _Pragma("clang diagnostic ignored \"-Wunguarded-availability\"")                          \
+    _Pragma("clang diagnostic ignored \"-Wunguarded-availability-new\"")                      \
+    CQF_FP_IMPL_##KIND##_(NAME)                                                               \
+    _Pragma("clang diagnostic pop")
 
 #endif /* CQFFilterPropertyImpl_h */
