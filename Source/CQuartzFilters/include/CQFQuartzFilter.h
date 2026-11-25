@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(QuartzFilter)
-@interface CQFQuartzFilter : NSObject
+@interface CQFQuartzFilter : NSObject <NSCopying, NSMutableCopying>
 
 @property (nonatomic, strong, nullable) id<CQFCAFilterProtocol> caFilter;
 

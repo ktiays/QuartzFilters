@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(CAFilterProtocol)
-@protocol CQFCAFilterProtocol <NSObject>
+@protocol CQFCAFilterProtocol <NSObject, NSCopying, NSMutableCopying>
 
 @property (nonatomic, readonly) NSString *type;
 

@@ -32,7 +32,7 @@
 - (instancetype)initWithFilter:(id)filter {
     self = [super init];
     if (self) {
-        NSAssert([NSStringFromClass([filter class]) isEqualToString:kCQFCAFilterClassName], @"");
+        NSAssert(!filter || [NSStringFromClass([filter class]) isEqualToString:kCQFCAFilterClassName], @"");
         _caFilter = filter;
     }
     return self;
@@ -56,6 +56,14 @@
 
 - (NSArray<NSString *> *)outputKeys {
     return [_caFilter outputKeys];
+}
+
+- (nonnull id)copyWithZone:(nullable NSZone *)zone {
+    return [[[self class] allocWithZone:zone] initWithFilter:[_caFilter copyWithZone:zone]];
+}
+
+- (nonnull id)mutableCopyWithZone:(nullable NSZone *)zone {
+    return [[[self class] allocWithZone:zone] initWithFilter:[_caFilter mutableCopyWithZone:zone]];
 }
 
 @end
